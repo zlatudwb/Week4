@@ -5,7 +5,7 @@
 ## 폴더 구조
 
 ```text
-Week4/                          (저장소 최상위)
+coding-and-applications/         (저장소 최상위)
 ├─ README.md                    전체 개요와 주차별 변경 기록
 ├─ week4_force_converter/       Week 4  힘 단위 변환기
 ├─ week5_load_analyzer/         Week 5  CSV 하중·응력 분석
