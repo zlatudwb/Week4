@@ -13,7 +13,11 @@
 
 <img src="screens/03_rect_10x10_8MPa.png" width="640" alt="사각형 10x10 mm 분석 화면">
 
-처음 화면과 CSV 선택 직후(시간–하중 그래프) 화면: [처음 화면](screens/01_start.png), [CSV 선택 후](screens/02_csv_loaded.png)
+처음 화면과 CSV 선택 직후 화면입니다. CSV를 선택하면 유효 데이터 수가 표시되고 시간–하중 그래프가 나타납니다. 분석을 누르면 시간–응력 그래프로 바뀝니다.
+
+| 처음 화면 | CSV 선택 직후 (시간–하중 그래프) |
+|---|---|
+| <img src="screens/01_start.png" width="380" alt="처음 화면"> | <img src="screens/02_csv_loaded.png" width="380" alt="CSV 선택 직후 화면"> |
 
 ## 2. 다섯 단면의 단면적 검증 결과
 
