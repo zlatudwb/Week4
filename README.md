@@ -10,6 +10,7 @@ Week4/                          (저장소 최상위)
 ├─ week4_force_converter/       Week 4  힘 단위 변환기
 ├─ week5_load_analyzer/         Week 5  CSV 하중·응력 분석
 └─ week6_section_gui/           Week 6  단면 선택과 CSV 분석 GUI
+   └─ submission/               Week 6 과제 제출 자료(실행 화면, 검증 결과)
 ```
 
 | 주차 | 폴더 | 프로그램 | 실행 | 설명 |
@@ -29,9 +30,10 @@ Week 6 과제 제출 자료(실행 화면, 단면적 검증, 응력 비교, 오�
 | 2026-09-30 | Week 4 | 힘 단위 변환기: 터미널 버전과 GUI 계산기 | `week4_force_converter/force_converter.py`, `week4_force_converter/calculator_gui.py` | `d832436` Initial commit |
 | 2026-10-07 | Week 5 | CSV 하중 데이터에서 응력 계산, 최대값 찾기, 시간–응력 그래프 저장 | `week5_load_analyzer/` 의 `load_analyzer.py`, `load_data.csv`, `load_test.csv`, `load_bad.csv`, `load_result.csv`, `stress_plot.png` | `8974569` Add CSV stress analysis and plot |
 | 2026-10-14 | Week 6 | 단면 선택과 CSV 분석 GUI: 사각형·원형봉·원형관·사각형관·H형강의 단면적과 최대 응력 계산 | `week6_section_gui/load_analyzer_gui.py` | `4d46602` Add section selection and CSV analysis GUI |
-| 2026-10-14 | Week 6 | README에 주차별 변경 기록 추가 | `README.md` | `c82ce2a` Organize README with weekly change log |
+| 2026-10-14 | 정리 | README에 주차별 변경 기록 추가 | `README.md` | `c82ce2a` Organize README with weekly change log |
 | 2026-10-14 | Week 6 | 화면 배율과 크기에 맞게 GUI 창 크기 조정 | `week6_section_gui/load_analyzer_gui.py` | `90b2860` Fit GUI window size to screen scale |
-| 2026-10-14 | 정리 | 파일을 주차별 폴더로 이동하고 README를 폴더별로 분리 (파일 내용은 그대로) | 전체 | Reorganize files into week folders |
+| 2026-10-14 | 정리 | 파일을 주차별 폴더로 이동하고 README를 폴더별로 분리 (파일 내용은 그대로) | 전체 | `c8034d0` Reorganize files into week folders |
+| 2026-10-14 | Week 6 | 과제 제출 자료 정리: 실행 화면, 단면적 검증, 응력 비교, 오류 처리 결과 | `week6_section_gui/submission/` | `e1b97bf` Add Week 6 submission materials |
 
 위 표의 파일 위치는 현재 폴더 구조 기준입니다. 폴더 정리 전에는 모든 파일이 저장소 최상위에 있었습니다. 파일 이동은 Git이 이름 변경으로 기록하므로, 각 파일의 이력은 `git log --follow <파일>`로 이어서 볼 수 있습니다.
 
