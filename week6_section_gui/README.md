@@ -1,5 +1,7 @@
 # 단면 선택과 CSV 분석 GUI (Week6)
 
+과제 제출용 실행 화면과 검증 결과는 [submission](submission/README.md)에 있습니다.
+
 ## 프로그램 기능
 
 `load_analyzer_gui.py`는 Tkinter 창에서 CSV 하중 데이터와 단면 치수를 입력받아 단면적, 최대 하중, 최대 응력, 최대 응력 발생 시간을 보여주고 시간–응력 그래프를 그립니다.

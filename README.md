@@ -18,6 +18,8 @@ Week4/                          (저장소 최상위)
 | Week 5 | [week5_load_analyzer](week5_load_analyzer/) | `load_analyzer.py` | `python load_analyzer.py` | [README](week5_load_analyzer/README.md) |
 | Week 6 | [week6_section_gui](week6_section_gui/) | `load_analyzer_gui.py` | `python load_analyzer_gui.py` | [README](week6_section_gui/README.md) |
 
+Week 6 과제 제출 자료(실행 화면, 단면적 검증, 응력 비교, 오류 처리 결과)는 [week6_section_gui/submission](week6_section_gui/submission/README.md)에 정리했습니다.
+
 각 프로그램은 해당 폴더 안에서 실행합니다. Week 5, Week 6은 `matplotlib`가 필요합니다(`python -m pip install matplotlib`).
 
 ## 주차별 변경 기록
