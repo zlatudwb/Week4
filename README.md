@@ -1,14 +1,37 @@
-﻿# Week4 코딩과 응용 실습
+# 코딩과 응용 실습
 
-국립공주대학교 코딩과 응용(2008424) 실습 저장소입니다. 주차별로 프로그램을 추가해 왔으며, 각 프로그램의 설명은 아래 목차의 섹션에 있습니다.
+국립공주대학교 코딩과 응용(2008424) 실습 저장소입니다. 주차별로 폴더를 나누어 프로그램을 추가해 왔고, 각 폴더의 README에 실행 방법과 사용법이 있습니다.
+
+## 폴더 구조
+
+```text
+Week4/                          (저장소 최상위)
+├─ README.md                    전체 개요와 주차별 변경 기록
+├─ week4_force_converter/       Week 4  힘 단위 변환기
+├─ week5_load_analyzer/         Week 5  CSV 하중·응력 분석
+└─ week6_section_gui/           Week 6  단면 선택과 CSV 분석 GUI
+```
+
+| 주차 | 폴더 | 프로그램 | 실행 | 설명 |
+|---|---|---|---|---|
+| Week 4 | [week4_force_converter](week4_force_converter/) | `force_converter.py`, `calculator_gui.py` | `python force_converter.py`, `python calculator_gui.py` | [README](week4_force_converter/README.md) |
+| Week 5 | [week5_load_analyzer](week5_load_analyzer/) | `load_analyzer.py` | `python load_analyzer.py` | [README](week5_load_analyzer/README.md) |
+| Week 6 | [week6_section_gui](week6_section_gui/) | `load_analyzer_gui.py` | `python load_analyzer_gui.py` | [README](week6_section_gui/README.md) |
+
+각 프로그램은 해당 폴더 안에서 실행합니다. Week 5, Week 6은 `matplotlib`가 필요합니다(`python -m pip install matplotlib`).
 
 ## 주차별 변경 기록
 
 | 일자 | 주차 | 내용 | 추가·변경한 파일 | 커밋 |
 |---|---|---|---|---|
-| 2026-09-30 | Week 4 | 힘 단위 변환기: 터미널 버전과 GUI 계산기 | `force_converter.py`, `calculator_gui.py`, `README.md` | `d832436` Initial commit |
-| 2026-10-07 | Week 5 | CSV 하중 데이터에서 응력 계산, 최대값 찾기, 시간–응력 그래프 저장 | `load_analyzer.py`, `load_data.csv`, `load_test.csv`, `load_bad.csv`, `load_result.csv`, `stress_plot.png`, `README.md` | `8974569` Add CSV stress analysis and plot |
-| 2026-10-14 | Week 6 | 단면 선택과 CSV 분석 GUI: 사각형·원형봉·원형관·사각형관·H형강의 단면적과 최대 응력 계산 | `load_analyzer_gui.py`, `README.md` | `4d46602` Add section selection and CSV analysis GUI |
+| 2026-09-30 | Week 4 | 힘 단위 변환기: 터미널 버전과 GUI 계산기 | `week4_force_converter/force_converter.py`, `week4_force_converter/calculator_gui.py` | `d832436` Initial commit |
+| 2026-10-07 | Week 5 | CSV 하중 데이터에서 응력 계산, 최대값 찾기, 시간–응력 그래프 저장 | `week5_load_analyzer/` 의 `load_analyzer.py`, `load_data.csv`, `load_test.csv`, `load_bad.csv`, `load_result.csv`, `stress_plot.png` | `8974569` Add CSV stress analysis and plot |
+| 2026-10-14 | Week 6 | 단면 선택과 CSV 분석 GUI: 사각형·원형봉·원형관·사각형관·H형강의 단면적과 최대 응력 계산 | `week6_section_gui/load_analyzer_gui.py` | `4d46602` Add section selection and CSV analysis GUI |
+| 2026-10-14 | Week 6 | README에 주차별 변경 기록 추가 | `README.md` | `c82ce2a` Organize README with weekly change log |
+| 2026-10-14 | Week 6 | 화면 배율과 크기에 맞게 GUI 창 크기 조정 | `week6_section_gui/load_analyzer_gui.py` | `90b2860` Fit GUI window size to screen scale |
+| 2026-10-14 | 정리 | 파일을 주차별 폴더로 이동하고 README를 폴더별로 분리 (파일 내용은 그대로) | 전체 | Reorganize files into week folders |
+
+위 표의 파일 위치는 현재 폴더 구조 기준입니다. 폴더 정리 전에는 모든 파일이 저장소 최상위에 있었습니다. 파일 이동은 Git이 이름 변경으로 기록하므로, 각 파일의 이력은 `git log --follow <파일>`로 이어서 볼 수 있습니다.
 
 Week 6에서 구현한 내용(실습 1~4):
 
@@ -16,292 +39,3 @@ Week 6에서 구현한 내용(실습 1~4):
 2. **사각형 단면**: 폭 b와 높이 h(mm)로 단면적을 계산하고, 분석 버튼으로 최대 응력과 발생 시간을 표시, 그래프를 시간–응력으로 갱신
 3. **나머지 단면**: 원형봉, 원형관, 사각형관, H형강 추가. 선택한 단면에 필요한 입력칸만 표시
 4. **불가능한 치수 처리**: 빈칸·문자·0·음수와 내부 공간이 없는 치수를 안내하고 계산을 중단. 조건이 바뀌면 이전 결과를 무효로 표시
-
-## 목차
-
-- [Week 4: 힘 단위 변환기](#week-4-힘-단위-변환기)
-- [Week 5: CSV 하중·응력 분석 프로그램](#csv-하중응력-분석-프로그램-week5)
-- [Week 6: 단면 선택과 CSV 분석 GUI](#단면-선택과-csv-분석-gui-week6)
-
-## 파일 구성
-
-| 파일 | 주차 | 설명 |
-|---|---|---|
-| `force_converter.py` | Week 4 | kN을 N과 kgf로 바꾸는 터미널 프로그램 |
-| `calculator_gui.py` | Week 4 | kN, N, kgf 사이를 변환하는 GUI 계산기 |
-| `load_analyzer.py` | Week 5 | CSV 하중을 응력으로 바꾸고 결과 CSV와 그래프 PNG를 저장 |
-| `load_analyzer_gui.py` | Week 6 | 단면을 선택해 단면적과 최대 응력을 계산하는 GUI |
-| `load_data.csv` | Week 5 | 기본 예시 데이터. 0~9초, 데이터 10개, 최대 800 N |
-| `load_test.csv` | Week 5 | 7초 하중만 900 N으로 바꾼 데이터 |
-| `load_bad.csv` | Week 5 | 빈칸과 문자(`abc`)가 섞인 오류 확인용 데이터 |
-| `load_result.csv`, `stress_plot.png` | Week 5 | `load_analyzer.py`가 만든 결과 파일 |
-
----
-
-## Week 4: 힘 단위 변환기
-
-이 폴더에는 힘 단위 변환 프로그램이 두 개 있습니다.
-
-### 프로그램 용도
-
-- `force_converter.py`: 터미널에서 kN 값을 입력받아 N과 kgf로 변환해 출력합니다. kgf 계산에는 `1 kgf = 9.81 N`을 사용합니다. `q`를 입력하면 종료합니다.
-- `calculator_gui.py`: 창에서 숫자와 입력 단위, 변환할 단위를 선택해 결과를 표시하는 계산기입니다. 지원 단위는 kN, N, kgf이며 kgf 변환에는 `1 kgf = 9.81 N`을 사용합니다. 입력 칸에서 Enter를 누르거나 변환 버튼을 눌러 계산합니다.
-
-### 필요한 환경
-
-- Python 3
-- GUI 프로그램은 Python에 포함된 Tkinter를 사용합니다. Tkinter를 사용할 수 있는 Python 설치 환경이 필요합니다.
-- 힘 단위 변환 프로그램에는 별도의 외부 Python 패키지가 필요하지 않습니다. CSV 분석 프로그램에는 아래에 안내한 `matplotlib`가 필요합니다.
-
-### 실행 명령
-
-Week4 폴더에서 다음 중 실행할 프로그램의 명령을 입력하세요.
-
-```bash
-python force_converter.py
-```
-
-```bash
-python calculator_gui.py
-```
-
-환경에 따라 `python` 대신 `python3` 명령을 사용해야 할 수 있습니다.
-
-### 입력 예시
-
-#### 터미널 프로그램
-
-정상 입력 예시:
-
-```text
-입력: 2.5
-출력: 2500.00 N, 약 254.84 kgf
-```
-
-종료 예시:
-
-```text
-입력: q
-동작: 프로그램 종료
-```
-
-오류 입력 예시:
-
-```text
-입력: abc
-동작: 숫자 또는 q를 입력하라는 오류 안내를 출력하고 다시 입력받음
-```
-
-#### GUI 프로그램
-
-정상 입력 예시:
-
-```text
-숫자: 2.5
-입력 단위: kN
-변환 단위: N
-결과: 2,500.00 N
-```
-
-오류 입력 예시:
-
-```text
-숫자: abc
-동작: 숫자를 입력하라는 오류를 표시하고, 숫자 입력 칸에 포커스를 둠
-```
-
----
-
-## CSV 하중·응력 분석 프로그램 (Week5)
-
-### 프로그램 기능
-
-`load_analyzer.py`는 CSV의 시간과 하중을 읽어 응력을 계산합니다. 유효한 데이터 수, 제외한 행 수, 최대 하중과 해당 시간, 최대 응력과 해당 시간, 기준 응력 6 MPa를 초과한 데이터 개수를 출력합니다.
-
-시간–응력 그래프에는 각 데이터의 점과 연결선, 연한 격자선, 입력 파일명과 단면적이 표시됩니다. 최대 응력 점은 빨간색으로 강조하고 시간과 응력 값을 함께 표시합니다. 최대값이 같은 데이터가 여러 개면 파일에서 먼저 나온 시간을 사용합니다.
-
-### 입력 파일과 단위
-
-CSV 첫 줄에는 다음 열 이름이 있어야 합니다. 데이터 개수에는 첫 줄의 열 이름을 포함하지 않습니다.
-
-| 입력 열 | 의미 | 단위 |
-|---|---|---|
-| `time_s` | 시간 | s |
-| `force_N` | 하중 | N |
-
-CSV는 UTF-8로 저장합니다. UTF-8 BOM이 포함된 파일도 읽을 수 있습니다.
-
-입력 형식 예시:
-
-```csv
-time_s,force_N
-0,0
-1,100
-2,250
-```
-
-실습용 입력 파일:
-
-- `load_data.csv`: 기본 원본 데이터, 0~9초의 데이터 10개
-- `load_test.csv`: 원본과 같고 7초 하중만 450 N에서 900 N으로 변경한 데이터
-- `load_bad.csv`: 원본의 2초 하중을 빈칸, 3초 하중을 `abc`로 변경한 오류 확인용 데이터
-
-### 필요한 라이브러리
-
-Python 3와 그래프 생성용 외부 라이브러리 `matplotlib`가 필요합니다. 코드에서 사용하는 `argparse`, `csv`, `math`, `pathlib`는 Python 기본 라이브러리입니다.
-
-프로그램을 실행할 Python 환경에 다음 명령으로 설치합니다.
-
-```bash
-python -m pip install matplotlib
-```
-
-### 실행 명령
-
-Week4 폴더의 터미널에서 실행합니다.
-
-기본 원본 데이터 분석:
-
-```bash
-python load_analyzer.py
-```
-
-입력 파일을 생략하면 `load_analyzer.py`와 같은 폴더의 `load_data.csv`를 읽습니다. VS Code의 ▶ 실행 버튼으로 실행할 때도 이 기본 파일을 읽습니다.
-
-테스트 데이터 분석:
-
-```bash
-python load_analyzer.py load_test.csv
-```
-
-잘못된 데이터 제외 확인:
-
-```bash
-python load_analyzer.py load_bad.csv
-```
-
-확인이 끝난 뒤 `python load_analyzer.py`를 다시 실행하면 원본 데이터 기준 결과와 그래프가 저장됩니다.
-
-### 단면적과 기준 응력 설정
-
-`load_analyzer.py` 위쪽의 설정을 변경한 뒤 저장하고 다시 실행합니다.
-
-```python
-area_mm2 = 100
-stress_threshold_mpa = 6
-```
-
-- `area_mm2`: 단면적, 단위 mm². 0보다 큰 유한한 숫자여야 합니다.
-- `stress_threshold_mpa`: 초과 데이터 개수를 셀 기준 응력, 단위 MPa. 기준값과 같은 데이터는 포함하지 않습니다.
-
-응력 계산식은 `stress_MPa = force_N / area_mm2`이며, `1 N/mm² = 1 MPa`입니다. 원본 데이터에서 단면적이 100 mm²이면 최대 응력은 8 MPa이고, 200 mm²이면 4 MPa입니다. 최대 응력 발생 시간은 모두 5초입니다.
-
-### 출력 파일과 확인값
-
-출력 파일은 입력 CSV와 같은 폴더에 저장됩니다. 다시 실행하면 같은 이름의 출력 파일을 갱신하며, 원본 입력 CSV는 수정하지 않습니다.
-
-| 출력 파일 | 내용 |
-|---|---|
-| `load_result.csv` | 유효한 행의 `time_s`, `force_N`, 계산한 `stress_MPa` 열. 응력 단위는 MPa |
-| `stress_plot.png` | x축 `Time (s)`, y축 `Stress (MPa)`인 시간–응력 그래프. 150 dpi로 저장 |
-
-기본 설정인 단면적 100 mm², 기준 응력 6 MPa에서 다음 값으로 확인할 수 있습니다.
-
-| 입력 파일 | 유효 데이터 | 제외 행 | 최대 하중 | 최대 응력 | 해당 시간 | 6 MPa 초과 데이터 |
-|---|---:|---:|---:|---:|---:|---:|
-| `load_data.csv` | 10개 | 0개 | 800 N | 8 MPa | 5 s | 2개 |
-| `load_test.csv` | 10개 | 0개 | 900 N | 9 MPa | 7 s | 3개 |
-| `load_bad.csv` | 8개 | 2개 | 800 N | 8 MPa | 5 s | 2개 |
-
-### 오류 처리 규칙
-
-- `time_s` 또는 `force_N`이 빈칸이거나 숫자가 아니면 원본 CSV의 행 번호, 열 이름, 문제 값을 안내하고 해당 행을 제외합니다. `NaN`, 무한대처럼 유한하지 않은 값도 제외합니다.
-- 행 번호에는 첫 줄의 열 이름을 포함합니다. `load_bad.csv`의 2초 데이터는 CSV 4행, 3초 데이터는 CSV 5행입니다.
-- 제외한 행은 계산, 결과 CSV, 그래프에 포함하지 않습니다. 제외한 행 수와 유효한 데이터 수를 출력합니다.
-- 유효한 데이터가 없으면 안내하고 계산을 중단합니다. 이 경우 출력 파일을 새로 만들거나 갱신하지 않으며, 이전 출력 파일이 있으면 그대로 남습니다.
-- 입력 파일이 없거나 필요한 열 이름이 없으면 오류를 안내하고 종료합니다. 잘못된 단면적 설정이나 파일 읽기·저장 오류도 안내하고 종료합니다.
-- 원본 CSV는 수정하지 않습니다. `load_bad.csv`의 빈칸과 `abc`도 실행 후 그대로 유지됩니다.
-
----
-
-## 단면 선택과 CSV 분석 GUI (Week6)
-
-### 프로그램 기능
-
-`load_analyzer_gui.py`는 Tkinter 창에서 CSV 하중 데이터와 단면 치수를 입력받아 단면적, 최대 하중, 최대 응력, 최대 응력 발생 시간을 보여주고 시간–응력 그래프를 그립니다.
-
-화면은 위에서 아래로 다음과 같이 구성됩니다.
-
-| 영역 | 내용 |
-|---|---|
-| 상단 | `CSV 찾아보기` 버튼과 선택한 파일 경로(읽기 전용) |
-| 데이터 정보 | 유효 데이터 수, 전체·제외 행 수, 안내 메시지 |
-| 단면 | 단면 종류 선택, 치수 입력칸, `분석` 버튼, 단면적 미리보기 |
-| 분석 결과 | 단면적, 최대 하중, 최대 응력, 발생 시간 |
-| 하단 | 그래프. 분석 전에는 시간–하중, 분석 후에는 시간–응력 |
-
-사용 순서:
-
-1. `CSV 찾아보기`로 CSV 파일을 선택합니다. 유효 데이터 수가 표시되고 시간–하중 그래프가 나타납니다.
-2. 단면 종류를 고르고 치수를 mm로 입력합니다. 단면적은 입력하는 즉시 mm²로 표시됩니다.
-3. `분석` 버튼(또는 치수 입력칸에서 Enter)을 누르면 계산한 단면적으로 응력을 구하고, 결과 숫자와 시간–응력 그래프를 함께 갱신합니다. 그래프의 최대 응력 점은 빨간색으로 표시됩니다.
-
-이 GUI는 결과를 파일로 저장하지 않습니다. 결과 CSV와 PNG를 저장하려면 위의 `load_analyzer.py`를 사용합니다.
-
-### 실행 명령
-
-Week4 폴더의 터미널에서 실행합니다.
-
-```bash
-python load_analyzer_gui.py
-```
-
-Python 3, Tkinter(Python 설치에 포함), `matplotlib`가 필요합니다. `matplotlib`는 `python -m pip install matplotlib`로 설치합니다.
-
-### CSV 열 이름
-
-Week5와 같은 형식입니다. 첫 줄에 다음 열 이름이 있어야 하며 UTF-8(BOM 허용)로 저장합니다.
-
-| 열 | 의미 | 단위 |
-|---|---|---|
-| `time_s` | 시간 | s |
-| `force_N` | 하중 | N |
-
-시간 순서가 섞여 있어도 시간순으로 정렬해 표시합니다. 응력은 `stress_MPa = force_N / 단면적(mm²)`로 계산하며 `1 N/mm² = 1 MPa`입니다.
-
-### 단면별 치수와 단위
-
-치수는 모두 mm, 단면적은 mm²입니다. 선택한 단면에 필요한 입력칸만 화면에 나타납니다. 모든 치수는 0보다 큰 유한한 숫자여야 하고, 아래 조건도 만족해야 합니다.
-
-| 단면 | 입력 치수 | 단면적 | 추가 조건 | 확인값 |
-|---|---|---|---|---|
-| 사각형 | 폭 b, 높이 h | A = b × h | 없음 | b=10, h=10 → 100 mm² |
-| 원형봉 | 지름 d | A = π × d² / 4 | 없음 | d=20 → 약 314.16 mm² |
-| 원형관 | 외경 D, 두께 t | A = π × [D² − (D − 2t)²] / 4 | 2t < D | D=40, t=5 → 약 549.78 mm² |
-| 사각형관 | 외측 폭 B, 외측 높이 H, 두께 t | A = B × H − (B − 2t) × (H − 2t) | 2t < B, 2t < H | B=40, H=60, t=5 → 900 mm² |
-| H형강 | 전체 높이 H, 플랜지 폭 B, 웨브 두께 tw, 플랜지 두께 tf | A = 2 × B × tf + (H − 2tf) × tw | 2tf < H, tw < B | H=100, B=80, tw=5, tf=8 → 1,700 mm² |
-
-`load_data.csv`(최대 하중 800 N, 5 s)로 확인할 수 있는 값입니다.
-
-| 단면과 치수 | 단면적 | 최대 응력 | 발생 시간 |
-|---|---|---|---|
-| 사각형 b=10, h=10 | 100 mm² | 8 MPa | 5 s |
-| 사각형 b=20, h=10 | 200 mm² | 4 MPa | 5 s |
-
-`load_test.csv`는 사각형 10 × 10 mm에서 최대 응력 9 MPa, 발생 시간 7 s입니다.
-
-### 이상화 단면 가정
-
-- 사각형관은 모서리 곡률을 무시한 이상화 단면입니다.
-- H형강은 플랜지와 웨브 사이의 필렛을 무시한 이상화 단면입니다.
-- 하중은 단면 전체에 고르게 작용하는 것으로 보고, 응력은 하중을 단면적으로 나눈 평균값입니다.
-
-### 오류 처리 규칙
-
-- CSV에서 `time_s` 또는 `force_N`이 빈칸이거나 숫자가 아니거나 `NaN`·무한대인 행은 제외합니다. 제외한 행 수는 화면에 표시하며, `load_bad.csv`는 유효 8개, 제외 2개입니다.
-- 필수 열이 없으면 필요한 열 이름(`time_s`, `force_N`)을 안내합니다. 파일을 읽을 수 없거나 유효한 데이터가 없으면 안내하고 분석하지 않습니다.
-- `찾아보기` 창에서 취소하면 현재 화면을 그대로 유지합니다.
-- 치수가 빈칸이거나 숫자가 아니거나 0 이하이거나 무한대이면, 어떤 입력칸이 문제인지 안내하고 계산하지 않습니다.
-- 위 추가 조건을 어기는 치수(예: 원형관 D=40, t=20은 내부 공간이 없음)는 이유를 안내하고 계산하지 않습니다. 너무 커서 단면적을 계산할 수 없는 값도 안내합니다.
-- 오류가 나면 이전 결과를 지우므로, 이전 결과가 현재 결과처럼 남지 않습니다. 입력을 고친 뒤 `분석` 버튼으로 다시 분석할 수 있습니다.
-- 새 CSV를 선택하거나 단면 종류·치수를 바꾸면 이전 단면적과 응력 결과를 지우고 `조건 변경됨: 다시 분석 필요`를 표시합니다. `분석`을 다시 누르면 숫자와 그래프가 갱신됩니다.
