@@ -165,8 +165,13 @@ class LoadAnalyzerApp(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("하중 데이터 분석기")
-        self.geometry("900x820")
-        self.minsize(680, 640)
+        # 화면 배율과 화면 크기에 맞춰 창 크기를 정합니다. (그래프 영역이 눌리거나
+        # 창이 화면 밖으로 잘리지 않게 함)
+        scale = self.winfo_fpixels("1i") / 96
+        width = min(int(900 * scale), self.winfo_screenwidth() - 40)
+        height = min(int(820 * scale), self.winfo_screenheight() - 100)
+        self.geometry(f"{width}x{height}")
+        self.minsize(min(int(680 * scale), width), min(int(640 * scale), height))
 
         self.rows = []          # 현재 CSV의 유효 데이터
         self.csv_problem = None  # CSV를 쓸 수 없는 이유(정상이면 None)
