@@ -1,19 +1,59 @@
-﻿# Week4 힘 단위 변환기
+﻿# Week4 코딩과 응용 실습
+
+국립공주대학교 코딩과 응용(2008424) 실습 저장소입니다. 주차별로 프로그램을 추가해 왔으며, 각 프로그램의 설명은 아래 목차의 섹션에 있습니다.
+
+## 주차별 변경 기록
+
+| 일자 | 주차 | 내용 | 추가·변경한 파일 | 커밋 |
+|---|---|---|---|---|
+| 2026-09-30 | Week 4 | 힘 단위 변환기: 터미널 버전과 GUI 계산기 | `force_converter.py`, `calculator_gui.py`, `README.md` | `d832436` Initial commit |
+| 2026-10-07 | Week 5 | CSV 하중 데이터에서 응력 계산, 최대값 찾기, 시간–응력 그래프 저장 | `load_analyzer.py`, `load_data.csv`, `load_test.csv`, `load_bad.csv`, `load_result.csv`, `stress_plot.png`, `README.md` | `8974569` Add CSV stress analysis and plot |
+| 2026-10-14 | Week 6 | 단면 선택과 CSV 분석 GUI: 사각형·원형봉·원형관·사각형관·H형강의 단면적과 최대 응력 계산 | `load_analyzer_gui.py`, `README.md` | `4d46602` Add section selection and CSV analysis GUI |
+
+Week 6에서 구현한 내용(실습 1~4):
+
+1. **CSV 선택과 기본 창**: 찾아보기 버튼, 읽기 전용 경로칸, 유효 데이터 수, 시간–하중 그래프
+2. **사각형 단면**: 폭 b와 높이 h(mm)로 단면적을 계산하고, 분석 버튼으로 최대 응력과 발생 시간을 표시, 그래프를 시간–응력으로 갱신
+3. **나머지 단면**: 원형봉, 원형관, 사각형관, H형강 추가. 선택한 단면에 필요한 입력칸만 표시
+4. **불가능한 치수 처리**: 빈칸·문자·0·음수와 내부 공간이 없는 치수를 안내하고 계산을 중단. 조건이 바뀌면 이전 결과를 무효로 표시
+
+## 목차
+
+- [Week 4: 힘 단위 변환기](#week-4-힘-단위-변환기)
+- [Week 5: CSV 하중·응력 분석 프로그램](#csv-하중응력-분석-프로그램-week5)
+- [Week 6: 단면 선택과 CSV 분석 GUI](#단면-선택과-csv-분석-gui-week6)
+
+## 파일 구성
+
+| 파일 | 주차 | 설명 |
+|---|---|---|
+| `force_converter.py` | Week 4 | kN을 N과 kgf로 바꾸는 터미널 프로그램 |
+| `calculator_gui.py` | Week 4 | kN, N, kgf 사이를 변환하는 GUI 계산기 |
+| `load_analyzer.py` | Week 5 | CSV 하중을 응력으로 바꾸고 결과 CSV와 그래프 PNG를 저장 |
+| `load_analyzer_gui.py` | Week 6 | 단면을 선택해 단면적과 최대 응력을 계산하는 GUI |
+| `load_data.csv` | Week 5 | 기본 예시 데이터. 0~9초, 데이터 10개, 최대 800 N |
+| `load_test.csv` | Week 5 | 7초 하중만 900 N으로 바꾼 데이터 |
+| `load_bad.csv` | Week 5 | 빈칸과 문자(`abc`)가 섞인 오류 확인용 데이터 |
+| `load_result.csv`, `stress_plot.png` | Week 5 | `load_analyzer.py`가 만든 결과 파일 |
+
+---
+
+## Week 4: 힘 단위 변환기
 
 이 폴더에는 힘 단위 변환 프로그램이 두 개 있습니다.
 
-## 프로그램 용도
+### 프로그램 용도
 
 - `force_converter.py`: 터미널에서 kN 값을 입력받아 N과 kgf로 변환해 출력합니다. kgf 계산에는 `1 kgf = 9.81 N`을 사용합니다. `q`를 입력하면 종료합니다.
 - `calculator_gui.py`: 창에서 숫자와 입력 단위, 변환할 단위를 선택해 결과를 표시하는 계산기입니다. 지원 단위는 kN, N, kgf이며 kgf 변환에는 `1 kgf = 9.81 N`을 사용합니다. 입력 칸에서 Enter를 누르거나 변환 버튼을 눌러 계산합니다.
 
-## 필요한 환경
+### 필요한 환경
 
 - Python 3
 - GUI 프로그램은 Python에 포함된 Tkinter를 사용합니다. Tkinter를 사용할 수 있는 Python 설치 환경이 필요합니다.
 - 힘 단위 변환 프로그램에는 별도의 외부 Python 패키지가 필요하지 않습니다. CSV 분석 프로그램에는 아래에 안내한 `matplotlib`가 필요합니다.
 
-## 실행 명령
+### 실행 명령
 
 Week4 폴더에서 다음 중 실행할 프로그램의 명령을 입력하세요.
 
@@ -27,9 +67,9 @@ python calculator_gui.py
 
 환경에 따라 `python` 대신 `python3` 명령을 사용해야 할 수 있습니다.
 
-## 입력 예시
+### 입력 예시
 
-### 터미널 프로그램
+#### 터미널 프로그램
 
 정상 입력 예시:
 
@@ -52,7 +92,7 @@ python calculator_gui.py
 동작: 숫자 또는 q를 입력하라는 오류 안내를 출력하고 다시 입력받음
 ```
 
-### GUI 프로그램
+#### GUI 프로그램
 
 정상 입력 예시:
 
@@ -69,6 +109,8 @@ python calculator_gui.py
 숫자: abc
 동작: 숫자를 입력하라는 오류를 표시하고, 숫자 입력 칸에 포커스를 둠
 ```
+
+---
 
 ## CSV 하중·응력 분석 프로그램 (Week5)
 
@@ -179,6 +221,8 @@ stress_threshold_mpa = 6
 - 유효한 데이터가 없으면 안내하고 계산을 중단합니다. 이 경우 출력 파일을 새로 만들거나 갱신하지 않으며, 이전 출력 파일이 있으면 그대로 남습니다.
 - 입력 파일이 없거나 필요한 열 이름이 없으면 오류를 안내하고 종료합니다. 잘못된 단면적 설정이나 파일 읽기·저장 오류도 안내하고 종료합니다.
 - 원본 CSV는 수정하지 않습니다. `load_bad.csv`의 빈칸과 `abc`도 실행 후 그대로 유지됩니다.
+
+---
 
 ## 단면 선택과 CSV 분석 GUI (Week6)
 
